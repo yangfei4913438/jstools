@@ -1,6 +1,6 @@
 {
-  "name": "jstools",
-  "version": "1.0.0",
+  "name": "js-tools",
+  "version": "v1.0.0",
   "description": "a javascript tools",
   "main": "index.js",
   "author": "yangfei",

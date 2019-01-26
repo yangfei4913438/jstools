@@ -7,7 +7,7 @@ import Array from './array'
 import Echarts from './echarts'
 import DataType from './dataType'
 
-export default {
+export {
   LocalStorage,
   Time,
   Form,

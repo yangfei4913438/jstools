@@ -27,7 +27,7 @@ function dataChange (type, val) {
           return ''
       }
     case 'traffic':
-      // 和rrs保持一致，使用1024进制
+      // 使用1024进制
       const unit = 1024;
       switch (true) {
         case (val >= 0 && val < unit):
@@ -65,14 +65,6 @@ function unitSwitch (name, bw, u) {
     } else if (Math.pow(unit, 4) <= bw && bw < Math.pow(unit, 5)) {
       return (bw / Math.pow(unit, 4)).toFixed(2) + ' Tbps'
     }
-  } else if (name === 'RTT' || name === 'JITTER') {
-    return bw + 'ms'
-  } else {
-    if (bw >= 1) {
-      return '100%'
-    } else {
-      return (bw * 100).toFixed(2) + '%'
-    }
   }
 }
 
@@ -83,7 +75,7 @@ function unitSwitch (name, bw, u) {
  * @return {array}
  **/
 function getArray (str, t) {
-  let res = []
+  let res = [];
 
   for (let i = 0; i < t * 5; i += 5) {
     res.push(addSecond(str, i))
@@ -99,7 +91,7 @@ function getArray (str, t) {
  * @return {array}
  **/
 function getArraySec (str, t) {
-  let res = []
+  let res = [];
 
   for (let i = 0; i < t; i++) {
     res.push(addSecond(str, i))
@@ -124,13 +116,13 @@ function add0 (obj) {
  * */
 function addSecond (str, t) {
   // 将字符串转成时间格式
-  let s = localTime.stringToDate(str)
+  let s = localTime.stringToDate(str);
 
-  s = s.valueOf()
+  s = s.valueOf();
 
-  s += t * 1000
+  s += t * 1000;
 
-  s = new Date(s)
+  s = new Date(s);
 
   return s.getHours() + ':' + add0(s.getMinutes()) + ':' + add0(s.getSeconds())
 }
@@ -138,25 +130,25 @@ function addSecond (str, t) {
 /**
  *  本地时间字符串，加上时间(单位：秒)
  *  如：传入 ('10:22:05'，5)
- *  返回：'10:22:00'
+ *  返回：'10:22:10'
  *  测试代码：console.log(titleshow('10:22:05', 5))
  *  @return {string}
  * */
 function titleshow (str, t) {
   // 解析时间部分
-  let timeStrs = str.split(':')
-  let hour = parseInt(timeStrs[0], 10)
-  let minute = parseInt(timeStrs[1], 10)
-  let second = parseInt(timeStrs[2], 10)
+  let timeStrs = str.split(':');
+  let hour = parseInt(timeStrs[0], 10);
+  let minute = parseInt(timeStrs[1], 10);
+  let second = parseInt(timeStrs[2], 10);
 
   // 这里生成的是本地时间
-  let res = new Date(2018, 3, 30, hour, minute, second)
+  let res = new Date(2018, 3, 30, hour, minute, second);
 
-  let s = res.valueOf()
+  let s = res.valueOf();
 
-  s += t * 1000
+  s += t * 1000;
 
-  s = new Date(s)
+  s = new Date(s);
 
   return s.getHours() + ':' + add0(s.getMinutes()) + ':' + add0(s.getSeconds())
 }

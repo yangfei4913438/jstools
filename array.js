@@ -6,7 +6,7 @@ import dataType from './dataType'
  * */
 function getUnique (arr) {
   if (arr.length >= 1) {
-    let ran = Math.floor(Math.random() * arr.length)
+    let ran = Math.floor(Math.random() * arr.length);
     return arr.splice(ran, 1)[0]
   }
 }
@@ -34,7 +34,7 @@ function split_array(arr, len){
  * 传入一个数组，返回一个不重复的数组
  * */
 function uniqueArr (arr) {
-  let tmp = new Set(arr)
+  let tmp = new Set(arr);
   return [...tmp]
 }
 
@@ -43,21 +43,21 @@ function uniqueArr (arr) {
  * 传入两个数组，第一个减去第二个数组里面的元素，返回剩下的元素
  * */
 function minusArr (arrX, arrY) {
-  let arr1, arr2
+  let arr1, arr2;
   if (arrX.length < arrY.length) {
-    arr1 = JSON.parse(JSON.stringify(arrY))
+    arr1 = JSON.parse(JSON.stringify(arrY));
     arr2 = JSON.parse(JSON.stringify(arrX))
   } else {
-    arr1 = JSON.parse(JSON.stringify(arrX))
+    arr1 = JSON.parse(JSON.stringify(arrX));
     arr2 = JSON.parse(JSON.stringify(arrY))
   }
   for (let i = arr1.length - 1; i >= 0; i--) {
-    let a = arr1[i]
+    let a = arr1[i];
     for (let j = arr2.length - 1; j >= 0; j--) {
-      let b = arr2[j]
+      let b = arr2[j];
       if (a === b) {
-        arr1.splice(i, 1)
-        arr2.splice(j, 1)
+        arr1.splice(i, 1);
+        arr2.splice(j, 1);
         break
       }
     }
@@ -75,12 +75,12 @@ function arrObjectSort (arrObj, keyName, sort='asc') {
     sort = 'desc'
   }
   //表示把对象复制给另一个对象，两者间互不影响
-  let arr = arrObj.slice(0)
+  let arr = arrObj.slice(0);
   // 比较函数
   function compare (property, sort) {
     return function(a, b) {
-      let value1 = typeof a[property] === typeof 'str' ? dataType.sumStrUnicode(a[property]) : a[property]
-      let value2 = typeof b[property] === typeof 'str' ? dataType.sumStrUnicode(b[property]) : b[property]
+      let value1 = typeof a[property] === typeof 'str' ? dataType.sumStrUnicode(a[property]) : a[property];
+      let value2 = typeof b[property] === typeof 'str' ? dataType.sumStrUnicode(b[property]) : b[property];
       if (value1 < value2) {
         return (sort.toLowerCase() === 'asc' ? -1 : 1)
       } else if ( value1 > value2 ) {

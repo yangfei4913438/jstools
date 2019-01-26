@@ -38,7 +38,7 @@ function timeStrToTimestamp (str) {
  */
 function timesTampFromLocal (str) {
   if (!checkTimeStr(str)) {
-    console.error('error format:' + str, 'right format: 2018-10-10 10:00:00')
+    console.error('error format:' + str, 'right format: 2018-10-10 10:00:00');
     return ''
   }
 

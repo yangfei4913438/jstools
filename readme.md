@@ -15,6 +15,15 @@
 ```javascript
 import { LocalStorage } from 'yf-jstools'
 
-// 获取当前系统中可能存在的语言设置
-let language = LocalStorage.getValue('lang');
+// 定义变量a=123
+let a = 123;
+// 打印日志
+console.log('set key:', a, typeof a); // set key: 123 number
+// 存储
+LocalStorage.setValue('key', a);
+
+// 取出
+let b = LocalStorage.getValue('key');
+// 打印日志
+console.log('get key:', b, typeof b); // get key: 123 number
 ```

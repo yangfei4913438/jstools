@@ -1,0 +1,8 @@
+{
+  "name": "jstools",
+  "version": "1.0.0",
+  "description": "a javascript tools",
+  "main": "index.js",
+  "author": "yangfei",
+  "license": "MIT"
+}

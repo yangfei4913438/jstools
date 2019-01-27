@@ -7,6 +7,8 @@ import cookie from './cookie'
  * @returns {string}
  */
 function strEncrypt(str) {
+  str = encodeURI(str);
+
   let c = String.fromCharCode(str.charCodeAt(0) + str.length);
 
   for (let i = 1; i < str.length; i++) {
@@ -28,7 +30,7 @@ function strDecrypt(str) {
   for (let i = 1; i < str.length; i++) {
     c += String.fromCharCode(str.charCodeAt(i) - c.charCodeAt(i - 1));
   }
-  return c;
+  return decodeURI(c);
 }
 
 // 存储数据

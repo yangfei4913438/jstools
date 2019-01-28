@@ -25,7 +25,7 @@ function pagesVal (page, pageNumbers, allNumbers, arr) {
   return arr.slice(start_num, end_num)
 }
 
-export default {
+module.exports = {
   // 前端分页函数
   pagesVal
-}
+};

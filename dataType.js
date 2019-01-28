@@ -24,9 +24,9 @@ function getDataType (obj) {
 }
 
 
-export default {
+module.exports = {
   // 获取字符串中字符的Unicode编码之和，主要用于字符串比较大小，然后排序
   sumStrUnicode,
   // 获取数据类型
   getDataType
-}
+};

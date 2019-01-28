@@ -18,8 +18,8 @@ function delCookie (key) {
   setCookie(key, '', -1)
 }
 
-export default {
+module.exports = {
   setCookie,
   getCookie,
   delCookie
-}
+};

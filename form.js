@@ -23,9 +23,9 @@ function checkIPAddress (ip) {
   return reg.test(ip)
 }
 
-export default {
+module.exports = {
   checkEmail,
   checkUserName,
   checkPassword,
   checkIPAddress
-}
+};

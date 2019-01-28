@@ -1,5 +1,5 @@
 // cookie默认不使用，优先localStorage，如果无法使用，系统才会调用cookie
-import cookie from './cookie'
+const cookie = require('./cookie');
 
 /**
  * 加密函数
@@ -99,9 +99,9 @@ function clearNMS () {
   delValue('token')
 }
 
-export default {
+module.exports = {
   setValue,
   getValue,
   delValue,
   clearNMS
-}
+};

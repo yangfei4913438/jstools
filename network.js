@@ -22,7 +22,7 @@ function parseGetUrl (url) {
   return dict
 }
 
-export default {
+module.exports = {
   // 解析url传参
   parseGetUrl
-}
+};

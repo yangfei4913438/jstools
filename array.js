@@ -93,7 +93,7 @@ function arrObjectSort (arrObj, keyName, sort='asc') {
   return arr.sort(compare(keyName, sort))
 }
 
-export default {
+module.exports = {
   // 从数组中取出不重复的值，取完返回未定义
   getUnique,
   // 数组分割
@@ -104,4 +104,4 @@ export default {
   minusArr,
   // 数组排序
   arrObjectSort
-}
+};

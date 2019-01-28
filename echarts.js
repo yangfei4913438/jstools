@@ -1,5 +1,5 @@
 // 下面获取数组的依赖函数！
-import localTime from './time'
+const localTime = require('./time');
 
 /**
  * 数据转换
@@ -170,7 +170,7 @@ function lineCount (date1, date2) {
   return Math.ceil(seconds / 5)
 }
 
-export default {
+module.exports = {
   // 用于展示折线图Y轴刻度
   unitSwitch,
   // 一个数组，数组内容，从小到大排列，每个元素相隔5秒
@@ -183,4 +183,4 @@ export default {
   lineCount,
   // 传入类型和值，得到一个适合的字符串
   dataChange
-}
+};

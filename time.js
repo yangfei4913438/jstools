@@ -458,7 +458,7 @@ function timeArr (untime) {
   return res
 }
 
-export default {
+module.exports = {
   // 获取时区
   getTimeZone,
   // 根据时间戳，计算距离现在有多久
@@ -495,4 +495,4 @@ export default {
   nextArgs,
   // 用于获取时间数组, 一个小时分成6份，传入的时间戳是截止时间。每个元素都是一个开始时间，一个结束时间
   timeArr
-}
+};

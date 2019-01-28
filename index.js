@@ -1,19 +1,11 @@
-import LocalStorage from './localStorage'
-import Time from './time'
-import Form from './form'
-import Table from './table'
-import Network from './network'
-import Array from './array'
-import Echarts from './echarts'
-import DataType from './dataType'
-
-export {
-  LocalStorage,
-  Time,
-  Form,
-  Table,
-  Network,
-  Array,
-  Echarts,
-  DataType
-}
+// 导出对象
+module.exports = {
+  LocalStorage: require('./localStorage'),
+  Time: require('./time'),
+  Form: require('./form'),
+  Table: require('./table'),
+  Network: require('./network'),
+  Array: require('./array'),
+  Echarts: require('./echarts'),
+  DataType: require('./dataType')
+};

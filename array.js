@@ -1,5 +1,5 @@
 /* eslint-disable */
-import dataType from './dataType'
+const dataType = require('./dataType');
 
 /**
  * 传入一个数组，每次执行返回一个不重复的元素，一直取到数组为空，值就是undefined

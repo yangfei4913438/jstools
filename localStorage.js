@@ -92,16 +92,16 @@ function delValue (key) {
 }
 
 /***
- * 清空缓存
- * 1、token 登录令牌
+ * 清空数据, 没有返回值
+ * @param args 本地存储的key，组成的数组
  */
-function clearNMS () {
-  delValue('token')
+function clearValue (args) {
+  typeof args === typeof [1, 2] && args.map(o => delValue(o))
 }
 
 module.exports = {
   setValue,
   getValue,
   delValue,
-  clearNMS
+  clearValue
 };

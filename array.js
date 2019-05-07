@@ -30,6 +30,32 @@ function split_array(arr, len){
 }
 
 /**
+ * 传入一个数组，根据输入输出，生成若干个，输出2个一组的小数组。
+ * */
+function split_array_out_in(arr) {
+  if (typeof arr !== typeof [1, 2] || arr === null || arr === undefined) {
+    return []
+  } else {
+    const arr_out = arr.filter(o => o.device_name === o.rrs_name_pre)
+    const arr_in = arr.filter(o => o.device_name === o.rrs_name_next)
+    if (arr_in.length > arr_out.length) {
+      for (let i = 0; i < (arr_in.length-arr_out.length); i++) {
+        arr_out.push(null)
+      }
+    } else {
+      for (let i = 0; i < (arr_out.length-arr_in.length); i++) {
+        arr_in.push(null)
+      }
+    }
+    let result = [];
+    for(let i = 0; i < arr_in.length; i++){
+      result.push([arr_out[i], arr_in[i]])
+    }
+    return result
+  }
+}
+
+/**
  * 数组去重
  * 传入一个数组，返回一个不重复的数组
  * */
@@ -39,30 +65,45 @@ function uniqueArr (arr) {
 }
 
 /**
- * 数组求差
+ * 数组求交集
+ * 判断一个数组中存在多少个元素，是对方数组的
+ * @return {number}
+ */
+function intersectArr (arrX, arrY) {
+  let arr1, arr2
+  if (arrX.length < arrY.length) {
+    arr1 = arrY
+    arr2 = arrX
+  } else {
+    arr1 = arrX
+    arr2 = arrY
+  }
+  arr1 = arr1.map(o => JSON.stringify(o))
+  arr2 = arr2.map(o => JSON.stringify(o))
+  // 求交集，目标对象转换成元组快一点
+  let sb = new Set(arr2);
+  return arr1.filter(x => sb.has(x)).length
+}
+
+/**
+ * 数组求差集, 默认是大数组减去小数组
  * 传入两个数组，第一个减去第二个数组里面的元素，返回剩下的元素
  * */
 function minusArr (arrX, arrY) {
-  let arr1, arr2;
+  let arr1, arr2
   if (arrX.length < arrY.length) {
-    arr1 = JSON.parse(JSON.stringify(arrY));
-    arr2 = JSON.parse(JSON.stringify(arrX))
+    arr1 = arrY
+    arr2 = arrX
   } else {
-    arr1 = JSON.parse(JSON.stringify(arrX));
-    arr2 = JSON.parse(JSON.stringify(arrY))
+    arr1 = arrX
+    arr2 = arrY
   }
-  for (let i = arr1.length - 1; i >= 0; i--) {
-    let a = arr1[i];
-    for (let j = arr2.length - 1; j >= 0; j--) {
-      let b = arr2[j];
-      if (a === b) {
-        arr1.splice(i, 1);
-        arr2.splice(j, 1);
-        break
-      }
-    }
-  }
-  return arr1
+  // 放置对象等无法直接比较的元素，统一转化为 JSON 字符串
+  arr1 = arr1.map(o => JSON.stringify(o))
+  arr2 = arr2.map(o => JSON.stringify(o))
+  // 求差集，目标对象转换成元组快一点
+  let sb = new Set(arr2);
+  return arr1.filter(x => !sb.has(x)).map(o => JSON.parse(o))
 }
 
 /**
@@ -98,10 +139,13 @@ module.exports = {
   getUnique,
   // 数组分割
   split_array,
+  split_array_out_in,
   // 数组去重
   uniqueArr,
-  // 数组求差
+  // 数组求差集
   minusArr,
+  // 数组求交集
+  intersectArr,
   // 数组排序
   arrObjectSort
 };
